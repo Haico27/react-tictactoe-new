@@ -1,9 +1,9 @@
 import chai, { expect } from 'chai'
-import { TOGGLE_LIKE } from '../actions/recipes/toggle-like'
-import recipes, { dummyData } from './recipes'
+import { TOGGLE_LIKE } from '../actions/games/toggle-like'
+import games, { dummyData } from './games'
 
-describe('recipes reducer', () => {
-  const initialState = recipes()
+describe('games reducer', () => {
+  const initialState = games()
   const expectedState = []
 
   it('return an empty array for the initial state', () => {
@@ -11,7 +11,7 @@ describe('recipes reducer', () => {
   })
 
   describe(TOGGLE_LIKE, () => {
-    const initialRecipes = [
+    const initialGames = [
       {
         _id: '1234',
         liked: false
@@ -22,7 +22,7 @@ describe('recipes reducer', () => {
       }
     ]
 
-    const eventualRecipes = [
+    const eventualGames = [
       {
         _id: '1234',
         liked: true
@@ -38,11 +38,11 @@ describe('recipes reducer', () => {
       payload: '1234'
     }
 
-    const initialState = recipes(initialRecipes)
+    const initialState = games(initialGames)
 
-    it('toggles the liked prop on a recipe', () => {
-      expect(initialState).to.eql(initialRecipes)
-      expect(recipes(initialRecipes, action)).to.eql(eventualRecipes)
+    it('toggles the liked prop on a game', () => {
+      expect(initialState).to.eql(initialGames)
+      expect(games(initialGames, action)).to.eql(eventualGames)
     })
   })
 })
