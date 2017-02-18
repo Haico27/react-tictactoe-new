@@ -5,7 +5,7 @@ import { history } from '../store'
 import signOut from '../actions/user/sign-out'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
-import LocalDining from 'material-ui/svg-icons/maps/local-dining'
+import GridOn from 'material-ui/svg-icons/image/grid-on'
 import FlatButton from 'material-ui/FlatButton'
 
 export class Navigation extends PureComponent {
@@ -30,8 +30,8 @@ export class Navigation extends PureComponent {
     const { signedIn } = this.props
     return (
       <AppBar
-        title="Games"
-        iconElementLeft={<IconButton onClick={this.goHome}><LocalDining /></IconButton>}
+        title="Tic Tac Toe"
+        iconElementLeft={<IconButton onClick={this.goHome}><GridOn /></IconButton>}
         iconElementRight={signedIn ?
           <FlatButton label="Sign out" onClick={this.signOut.bind(this)} /> :
           <FlatButton label="Sign up" onClick={this.signUp} />
