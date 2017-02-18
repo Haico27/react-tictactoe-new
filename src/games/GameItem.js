@@ -2,8 +2,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import LikeButton from '../components/LikeButton'
-import toggleLikeAction from '../actions/games/toggle-like'
 import './GameItem.sass'
 
 export class GameItem extends PureComponent {
@@ -15,19 +13,13 @@ export class GameItem extends PureComponent {
     vegan: PropTypes.bool,
     vegetarian: PropTypes.bool,
     pescatarian: PropTypes.bool,
-    toggleLikeAction: PropTypes.func.isRequired,
+
   }
 
-  toggleLike() {
-    const { _id, likedBy, currentUser } = this.props
-    if (!currentUser) return
 
-    console.log('CLICK (GameItem)', _id)
-    this.props.toggleLikeAction({ _id, likedBy }, currentUser)
-  }
 
   render() {
-    const { _id, title, summary, vegan, vegetarian, pescatarian, photo, liked, likedBy } = this.props
+    const { _id, title, summary, vegan, vegetarian, pescatarian, photo } = this.props
 
     return(
       <article className="game">
@@ -46,21 +38,13 @@ export class GameItem extends PureComponent {
           <p>{ summary }</p>
         </main>
         <footer>
-          <LikeButton
-            liked={ liked }
-            likes={likedBy.length}
-            onChange={ this.toggleLike.bind(this) } />
         </footer>
       </article>
     )
   }
 }
 
-const mapStateToProps = ({ currentUser }, { likedBy }) => {
-  return {
-    currentUser,
-    liked: likedBy.filter((like) => (like === (currentUser && currentUser._id))).length > 0
-  }
-}
+const mapStateToProps = ({ currentUser }) => ({ currentUser })
+  
 
-export default connect(mapStateToProps, { toggleLikeAction })(GameItem)
+export default connect(mapStateToProps)(GameItem)
