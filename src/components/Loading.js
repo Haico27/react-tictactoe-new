@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import PartyParrot from '../images/l1ghtsab3r-partyparrot.gif'
+import LoadingGif from '../images/loading-animations-preloader-gifs-ui-ux-effects-23.gif'
 import './Loading.sass'
 
 export class Loading extends PureComponent {
@@ -14,7 +14,7 @@ export class Loading extends PureComponent {
 
     return (
       <div className="loading">
-        <img src={ PartyParrot } />
+        <img src={ LoadingGif } />
       </div>
     )
   }
