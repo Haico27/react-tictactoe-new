@@ -11,9 +11,9 @@ class Board extends React.PureComponent {
   }
 
   renderSquare(i) {
-    return <Square value={i} />;
+    return <Square value={this.state.squares[i]} />;
   }
-  
+
   render() {
     const status = 'Next player: X';
     return (
