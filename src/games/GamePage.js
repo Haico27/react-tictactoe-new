@@ -15,10 +15,12 @@ export class GamePage extends PureComponent {
     const { title } = this.props
 
     return(
-      <div className="game page">
+    <div className="game page">
+      <div className="title">
         <Title content={ title || 'Loading...' } />
       </div>
-      <div className="game">
+
+
         <div className="game-board">
           <Board />
         </div>
