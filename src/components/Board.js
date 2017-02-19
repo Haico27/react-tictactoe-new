@@ -4,7 +4,7 @@ import './Board.sass'
 
 class Board extends React.PureComponent {
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i} />;
   }
   render() {
     const status = 'Next player: X';
