@@ -24,18 +24,11 @@ export class GameItem extends PureComponent {
     return(
       <article className="game">
         <header>
-          <div className="cover" style={{ backgroundImage: `url(${photo})` }} />
           <h1>
             <Link to={`/games/${_id}`}>{ title }</Link>
           </h1>
-          <ul className="categories">
-            { vegan && <li title="vegan">🌾</li> }
-            { !vegan && vegetarian && <li title="vegetarian">🥕</li> }
-            { !vegetarian && pescatarian && <li title="pescatarian">🐟</li> }
-          </ul>
         </header>
         <main>
-          <p>{ summary }</p>
         </main>
         <footer>
         </footer>
@@ -45,6 +38,6 @@ export class GameItem extends PureComponent {
 }
 
 const mapStateToProps = ({ currentUser }) => ({ currentUser })
-  
+
 
 export default connect(mapStateToProps)(GameItem)
