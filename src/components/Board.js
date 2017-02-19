@@ -3,9 +3,17 @@ import Square from './Square'
 import './Board.sass'
 
 class Board extends React.PureComponent {
+  constructor() {
+    super()
+    this.state = {
+      squares: Array(9).fill(null),
+    }
+  }
+
   renderSquare(i) {
     return <Square value={i} />;
   }
+  
   render() {
     const status = 'Next player: X';
     return (
