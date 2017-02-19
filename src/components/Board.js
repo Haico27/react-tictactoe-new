@@ -7,6 +7,7 @@ class Board extends React.PureComponent {
     super()
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true, // sets player X plays the first move by default
     }
   }
 
@@ -16,12 +17,16 @@ class Board extends React.PureComponent {
 
   handleClick(i) {
   const squares = this.state.squares.slice()
-  squares[i] = 'X'
-  this.setState({squares: squares})
+  squares[i] = this.state.xIsNext ? 'X' : 'O'; // if xIsNext is true, X plays; if false O plays
+  this.setState({
+    squares: squares,
+    xIsNext: !this.state.xIsNext, //changes the state of xIsNext to the opposite
+  })
 }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O'); //shows whether its the turn of player X or player O
+  
     return (
       <div className="board">
         <div className="status">{status}</div>
