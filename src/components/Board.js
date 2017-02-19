@@ -3,9 +3,23 @@ import Square from './Square'
 import './Board.sass'
 
 class Board extends React.PureComponent {
-  renderSquare(i) {
-    return <Square />;
+  constructor() {
+    super()
+    this.state = {
+      squares: Array(9).fill(null),
+    }
   }
+
+  renderSquare(i) {
+    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />
+  }
+
+  handleClick(i) {
+  const squares = this.state.squares.slice()
+  squares[i] = 'X'
+  this.setState({squares: squares})
+}
+
   render() {
     const status = 'Next player: X';
     return (
