@@ -28,8 +28,8 @@ export class GamesContainer extends PureComponent {
     return(
       <div className="games wrapper">
         <header>
-          <Title content="All Games" />
           <GameEditor />
+          <Title content="All Games" />
         </header>
 
         <main className="container">

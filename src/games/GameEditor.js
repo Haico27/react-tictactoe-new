@@ -78,7 +78,7 @@ this.props.CREATE_GAME(game)
           onKeyDown={this.updateTitle.bind(this)} />
 
         <div className="actions">
-          <button className="primary" onClick={this.saveGame.bind(this)}>Save</button>
+          <center><button className="primary" onClick={this.saveGame.bind(this)}>Create new Game!</button></center>
         </div>
       </div>
     )
