@@ -4,6 +4,7 @@ import loadError from '../load/error'
 import loadSuccess from '../load/success'
 import loading from '../loading'
 export const FETCHED_GAMES = 'FETCHED_GAMES'
+export const GAME_CREATED = 'GAME_CREATED'
 
 const api = new API()
 const games = api.service('games')
