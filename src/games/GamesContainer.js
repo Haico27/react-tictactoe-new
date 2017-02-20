@@ -5,6 +5,7 @@ import fetchGames from '../actions/games/fetch'
 import subscribeToGamesService from '../actions/games/subscribe'
 import Title from '../components/Title'
 import GameItem from './GameItem'
+import GameEditor from './GameEditor'
 import './GamesContainer.sass'
 
 export class GamesContainer extends PureComponent {
@@ -28,6 +29,7 @@ export class GamesContainer extends PureComponent {
       <div className="games wrapper">
         <header>
           <Title content="All Games" />
+          <GameEditor />
         </header>
 
         <main className="container">

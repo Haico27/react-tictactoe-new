@@ -8,18 +8,10 @@ export class GameItem extends PureComponent {
   static propTypes = {
     _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    photo: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    vegan: PropTypes.bool,
-    vegetarian: PropTypes.bool,
-    pescatarian: PropTypes.bool,
-
   }
 
-
-
   render() {
-    const { _id, title, summary, vegan, vegetarian, pescatarian, photo } = this.props
+    const { _id, title, } = this.props
 
     return(
       <article className="game">
