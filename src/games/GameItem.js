@@ -27,7 +27,7 @@ export class GameItem extends PureComponent {
           </h1>
         </header>
         <main>
-          <center><Link to={`/games/${_id}`}>Play Game</Link></center>
+          <center><Link to={`/games/${_id}`}>Play!</Link></center>
         </main>
         <footer>
           <HardwareVideogameAsset style={iconStyles} color={blue500} />
