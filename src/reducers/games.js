@@ -1,5 +1,6 @@
 import { TOGGLE_LIKE } from '../actions/games/toggle-like'
 import { FETCHED_GAMES } from '../actions/games/fetch'
+import { CREATE_GAME } from '../actions/games/create-game'
 import {
   GAME_CREATED,
   GAME_UPDATED,
@@ -8,6 +9,9 @@ import {
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
+    case CREATE_GAME :
+      return [Object.assign({}, payload)].concat(state)
+
     case FETCHED_GAMES :
       return [].concat(payload)
 
