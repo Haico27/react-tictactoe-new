@@ -1,8 +1,24 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { history } from '../store'
 import signUp from '../actions/user/sign-up'
 import Title from '../components/Title'
+import Paper from 'material-ui/Paper';
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import FlatButton from 'material-ui/FlatButton'
+
+const dialogStyle = {
+  width: '400px',
+  margin: '50px auto',
+  padding: '2rem',
+}
+
+const buttonStyle = {
+  float: 'right',
+  marginLeft: '2rem',
+}
 
 export class SignUp extends PureComponent {
   constructor() {
@@ -107,49 +123,62 @@ export class SignUp extends PureComponent {
     return false
   }
 
+  signIn() {
+  history.push('/sign-in')
+}
+
+
   render() {
     return (
-      <div className="sign-up form">
-        <Title content="Sign Up" />
+      <Paper style={ dialogStyle }>
+        <div className="sign-up form">
+          <Title content="Sign Up" />
 
-        <form onSubmit={this.submitForm.bind(this)}>
-          <div className="input">
-            <input ref="name" type="text" placeholder="Your name"
-              onChange={this.validateName.bind(this)} />
-            { this.state.nameError ?
-              <p className="formError">{ this.state.nameError }</p> :
-              null
-            }
-          </div>
-          <div className="input">
-            <input ref="email" type="email" placeholder="Email address"
-              onChange={this.validateEmail.bind(this)} />
-            { this.state.emailError ?
-              <p className="formError">{ this.state.emailError }</p> :
-              null
-            }
-          </div>
-          <div className="input">
-            <input ref="password" type="password" placeholder="Password"
-              onChange={this.validatePassword.bind(this)} />
-            { this.state.passwordError ?
-              <p className="formError">{ this.state.passwordError }</p> :
-              null
-            }
-          </div>
-          <div className="input">
-            <input ref="passwordConfirmation" type="password" placeholder="Repeat Password"
-              onKeyUp={this.validatePasswordConfirmation.bind(this)}
-              onChange={this.validatePasswordConfirmation.bind(this)} />
-            { this.state.passwordConfirmationError ?
-              <p className="formError">{ this.state.passwordConfirmationError }</p> :
-              null
-            }
-          </div>
-          <Link to="/sign-in">Sign in</Link>
-          <input type="submit" value="Sign up" />
-        </form>
-      </div>
+          <form onSubmit={this.submitForm.bind(this)}>
+            <div className="input">
+              <input ref="name" type="text" placeholder="Your name"
+                onChange={this.validateName.bind(this)} />
+              { this.state.nameError ?
+                <p className="formError">{ this.state.nameError }</p> :
+                null
+              }
+            </div>
+            <div className="input">
+              <input ref="email" type="email" placeholder="Email address"
+                onChange={this.validateEmail.bind(this)} />
+              { this.state.emailError ?
+                <p className="formError">{ this.state.emailError }</p> :
+                null
+              }
+            </div>
+            <div className="input">
+              <input ref="password" type="password" placeholder="Password"
+                onChange={this.validatePassword.bind(this)} />
+              { this.state.passwordError ?
+                <p className="formError">{ this.state.passwordError }</p> :
+                null
+              }
+            </div>
+            <div className="input">
+              <input ref="passwordConfirmation" type="password" placeholder="Repeat Password"
+                onKeyUp={this.validatePasswordConfirmation.bind(this)}
+                onChange={this.validatePasswordConfirmation.bind(this)} />
+              { this.state.passwordConfirmationError ?
+                <p className="formError">{ this.state.passwordConfirmationError }</p> :
+                null
+              }
+            </div>
+            <FlatButton
+              onClick={ this.signIn }
+              label="Sign in" />
+            <RaisedButton
+              style={ buttonStyle }
+              onClick={ this.submitForm.bind(this) }
+              label="Sign up"
+              primary={true} />
+          </form>
+        </div>
+      </Paper>
     )
   }
 }
