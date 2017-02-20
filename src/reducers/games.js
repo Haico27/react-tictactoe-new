@@ -17,7 +17,7 @@ export default (state = [], { type, payload } = {}) => {
 
     case GAME_CREATED :
       const newGame = Object.assign({}, payload)
-      return [newGame].concat(state)
+        return [newGame].concat(state)
 
     case GAME_UPDATED :
       return state.map((game) => {
