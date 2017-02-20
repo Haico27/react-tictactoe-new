@@ -7,23 +7,23 @@ import CREATE_GAME  from '../actions/games/create-game'
 import './GameEditor.sass'
 import saveGame from '../actions/games/save-game'
 
-const TYPES = [
-  'Beginner',
-  'Normal',
-  'Pro',
-]
+// const TYPES = [
+//   'Beginner',
+//   'Normal',
+//   'Pro',
+// ]
 
 class GameEditor extends PureComponent {
   constructor(props) {
     super()
 
-    const { title, beginner, normal, pro } = props
+    const { title } = props
 
     this.state = {
       title,
-      beginner,
-      normal,
-      pro,
+      // beginner,
+      // normal,
+      // pro,
     }
   }
 
@@ -37,27 +37,27 @@ class GameEditor extends PureComponent {
     })
   }
 
-  setType(event) {
-    this.setState({
-      beginner: event.target.value === 'Beginner',
-      normal: event.target.value === 'Normal',
-      pro: event.target.value === 'Pro'
-    })
-  }
+  // setType(event) {
+  //   this.setState({
+  //     beginner: event.target.value === 'Beginner',
+  //     normal: event.target.value === 'Normal',
+  //     pro: event.target.value === 'Pro'
+  //   })
+  // }
 
   saveGame() {
     const {
       title,
-      beginner,
-      normal,
-      pro,
+      // beginner,
+      // normal,
+      // pro,
     } = this.state
 
     const game = {
       title,
-      beginner,
-      normal,
-      pro,
+      // beginner,
+      // normal,
+      // pro,
     }
 
 this.props.CREATE_GAME(game)
@@ -77,12 +77,12 @@ this.props.CREATE_GAME(game)
           onChange={this.updateTitle.bind(this)}
           onKeyDown={this.updateTitle.bind(this)} />
 
-        {TYPES.map((type) => {
-          return <label key={type} htmlFor={type}>
-            <input id={type} type="radio" name="type" value={type} onChange={this.setType.bind(this)} />
-            {type}
-          </label>
-        })}
+        // {TYPES.map((type) => {
+        //   return <label key={type} htmlFor={type}>
+        //     <input id={type} type="radio" name="type" value={type} onChange={this.setType.bind(this)} />
+        //     {type}
+        //   </label>
+        // })}
 
         <div className="actions">
           <button className="primary" onClick={this.saveGame.bind(this)}>Save</button>
