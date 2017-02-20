@@ -17,10 +17,11 @@ export class GameItem extends PureComponent {
       <article className="game">
         <header>
           <h1>
-            <Link to={`/games/${_id}`}>{ title }</Link>
+            { title }
           </h1>
         </header>
         <main>
+          <Link to={`/games/${_id}`}>Join</Link>
         </main>
         <footer>
         </footer>
