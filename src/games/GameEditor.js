@@ -66,7 +66,7 @@ this.props.CREATE_GAME(game)
   }
 
   render() {
-    return (
+    return(
       <div className="editor">
         <input
           type="text"
@@ -76,13 +76,6 @@ this.props.CREATE_GAME(game)
           defaultValue={this.state.title}
           onChange={this.updateTitle.bind(this)}
           onKeyDown={this.updateTitle.bind(this)} />
-
-        // {TYPES.map((type) => {
-        //   return <label key={type} htmlFor={type}>
-        //     <input id={type} type="radio" name="type" value={type} onChange={this.setType.bind(this)} />
-        //     {type}
-        //   </label>
-        // })}
 
         <div className="actions">
           <button className="primary" onClick={this.saveGame.bind(this)}>Save</button>
