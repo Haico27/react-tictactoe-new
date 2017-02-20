@@ -3,6 +3,12 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import './GameItem.sass'
+import HardwareVideogameAsset from 'material-ui/svg-icons/hardware/videogame-asset'
+import {blue500} from 'material-ui/styles/colors'
+
+const iconStyles = {
+  marginLeft: 30
+};
 
 export class GameItem extends PureComponent {
   static propTypes = {
@@ -21,9 +27,10 @@ export class GameItem extends PureComponent {
           </h1>
         </header>
         <main>
-          <Link to={`/games/${_id}`}>Join</Link>
+          <center><Link to={`/games/${_id}`}>Play Game</Link></center>
         </main>
         <footer>
+          <HardwareVideogameAsset style={iconStyles} color={blue500} />
         </footer>
       </article>
     )
