@@ -3,6 +3,13 @@ import { connect } from 'react-redux'
 import fetchGames from '../actions/games/fetch'
 import Board from '../components/Board'
 import Title from '../components/Title'
+import GAME_REMOVED from '../actions/games/delete-game'
+import RaisedButton from 'material-ui/RaisedButton'
+
+const buttonStyle = {
+  float: 'right',
+  marginLeft: '2rem',
+}
 
 export class GamePage extends PureComponent {
   static propTypes = {}
@@ -24,6 +31,12 @@ export class GamePage extends PureComponent {
         <div className="game-board">
           <Board />
         </div>
+        <RaisedButton
+          style={ buttonStyle }
+          onClick={ this.deleteGame }
+          label="Delete Game"
+          primary={true} />
+
         <div className="game-info">
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
@@ -46,4 +59,4 @@ const mapStateToProps = ({ games }, { params }) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchGames })(GamePage)
+export default connect(mapStateToProps, { GAME_REMOVED, fetchGames })(GamePage)
