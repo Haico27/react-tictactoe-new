@@ -9,8 +9,8 @@ import {
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
-    case CREATE_GAME :
-      return [Object.assign({}, payload)].concat(state)
+    // case CREATE_GAME :
+    //   return [Object.assign({}, payload)].concat(state)
 
     case FETCHED_GAMES :
       return [].concat(payload)
