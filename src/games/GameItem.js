@@ -6,6 +6,8 @@ import './GameItem.sass'
 import RaisedButton from 'material-ui/RaisedButton'
 import HardwareVideogameAsset from 'material-ui/svg-icons/hardware/videogame-asset'
 import {blue500} from 'material-ui/styles/colors'
+import { history } from '../store'
+// import TicTacToe from '../images/tictactoe.jpg'
 
 const iconStyles = {
   marginLeft: 30
@@ -22,6 +24,10 @@ export class GameItem extends PureComponent {
     title: PropTypes.string.isRequired,
   }
 
+  gameId() {
+    history.push('games/:gameId')
+  }
+
   render() {
     const { _id, title, } = this.props
 
@@ -33,12 +39,6 @@ export class GameItem extends PureComponent {
           </h1>
         </header>
         <main>
-        <RaisedButton
-          style={ buttonStyle }
-          onClick={ this.deleteGame }
-          label="Delete Game"
-          primary={true} />
-
           <center><HardwareVideogameAsset style={iconStyles} color={blue500} />
           <Link to={`/games/${_id}`}>Play!</Link></center>
         </main>

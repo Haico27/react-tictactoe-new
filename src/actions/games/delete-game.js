@@ -8,15 +8,16 @@ export default (deleteGame) => {
     console.log('newGame: ', deleteGame)
     api.app.authenticate()
     .then(() => {
-      games.destroy(deleteGame)
+      games.remove(deleteGame)
         .then((response) => {
-          console.log('game created', response)
+          console.log('game removed', response)
         }).catch((error) => {
           console.error('Error', error);
         })
       }).catch((error) => {
         console.error(error)
     })
+    history.push('/')
   }
   return {
     type: GAME_REMOVED
