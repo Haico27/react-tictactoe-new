@@ -18,6 +18,12 @@ export class GamePage extends PureComponent {
     this.props.fetchGames()
   }
 
+  deleteGame() {
+    const {
+      title
+    } = this.state
+  }
+
   render() {
     const { title } = this.props
 

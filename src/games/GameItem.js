@@ -3,12 +3,18 @@ import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import './GameItem.sass'
+import RaisedButton from 'material-ui/RaisedButton'
 import HardwareVideogameAsset from 'material-ui/svg-icons/hardware/videogame-asset'
 import {blue500} from 'material-ui/styles/colors'
 
 const iconStyles = {
   marginLeft: 30
 };
+
+const buttonStyle = {
+  float: 'right',
+  marginLeft: '2rem',
+}
 
 export class GameItem extends PureComponent {
   static propTypes = {
@@ -23,14 +29,20 @@ export class GameItem extends PureComponent {
       <article className="game">
         <header>
           <h1>
-            { title }
+            <center>{ title }</center>
           </h1>
         </header>
         <main>
-          <center><Link to={`/games/${_id}`}>Play!</Link></center>
+        <RaisedButton
+          style={ buttonStyle }
+          onClick={ this.deleteGame }
+          label="Delete Game"
+          primary={true} />
+
+          <center><HardwareVideogameAsset style={iconStyles} color={blue500} />
+          <Link to={`/games/${_id}`}>Play!</Link></center>
         </main>
         <footer>
-          <HardwareVideogameAsset style={iconStyles} color={blue500} />
         </footer>
       </article>
     )

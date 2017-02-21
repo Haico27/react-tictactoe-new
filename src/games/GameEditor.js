@@ -6,6 +6,12 @@ import 'medium-editor/src/sass/medium-editor.scss'
 import CREATE_GAME  from '../actions/games/create-game'
 import './GameEditor.sass'
 import saveGame from '../actions/games/save-game'
+import RaisedButton from 'material-ui/RaisedButton'
+
+const buttonStyle = {
+  float: 'right',
+  marginLeft: '2rem',
+}
 
 // const TYPES = [
 //   'Beginner',
@@ -77,9 +83,11 @@ this.props.CREATE_GAME(game)
           onChange={this.updateTitle.bind(this)}
           onKeyDown={this.updateTitle.bind(this)} />
 
-        <div className="actions">
-          <center><button className="primary" onClick={this.saveGame.bind(this)}>Create a new Game</button></center>
-        </div>
+          <RaisedButton
+            style={ buttonStyle }
+            onClick={ this.saveGame.bind(this) }
+            label="Create a new Game"
+            primary={true} />
       </div>
     )
   }
